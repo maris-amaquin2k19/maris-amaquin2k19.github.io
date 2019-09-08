@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Amaquin MowsS</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<style>
+    html body{
+        height: 100%;
+        background-image: url("https://previews.123rf.com/images/song/song1111/song111100036/11320527-coconut-palm-tree-vector-illustration-of-coconut-palm-tree-on-tropical-beach-horizontal-format-.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+       
+    }
+
+    .card{
+        height: 380px;
+        background: linear-gradient(to top, #b3ffeb, #b3ffeb);
+        /* border-top-left-radius: 30px 30px;
+        border-top-right-radius: 30px 30px; */
+        border-width:10px;  
+        border-style:outset;
+    }
+    .form-control{
+        border-width:5px;  
+        border-style:groove;
+    }
+    #status{
+        height: 50px;
+        border-width:5px;  
+        border-style:ridge;
+    }
+    button{
+        border-width:2px;  
+        border-style:ridge;
+    }
+    .table{
+        background-color: #9966CC;
+        
+        
+        /* border-width:10px;  
+        border-style:outset; */
+
+    }
+    th, tr, thead{
+        font-size: 15px;
+        border: black;
+        color: white;
+
+    }
+    h4{
+       color: b#b3ffeb; 
+       text-align: center;
+       margin-left: 40%;
+       margin-right: 46%;
+       font-size: 35px;
+       background-color: #ffccff;
+       border-style: outset;
+    }
+    h2,h3{
+        color: white;
+        font-family: fantasy;
+        font-size: 50px;
+        text-align: center;
+        padding-top: 20px;
+    }
+</style>
+
+<body>
+    <h2>Mqtt</h2>
+    <h3>My MQTT Web Browser</h3>
+    <div class="container">
+        <br>
+        <div class="row">
+            <!-- column 1 -->
+            <div class="col">
+                <div class="card">
+                    <div class="container">
+                        <center>
+                            <div class="card-header">
+                                <div class="text-center h4">Broker</div>
+
+                            </div>
+                            <div class="card-body">
+                                <label for="input-broker-ws"> Address:</label>
+                                <br><br>
+                                <input type="text" class="form-control" id="input-broker-ws" value="wss://test.mosquitto.org:8081/mqtt"><br><br>
+
+                                <button id="btn-connect" class="btn btn-outline-success">Connect</button>
+
+                                <button class="btn btn-outline-danger pure-button btn-disconnect">Disconnect</button>
+                            </div>
+                        </center>
+
+                        <div class="card-footer">
+                            <div id="status" class="text-center alert alert-secondary">
+                                Disconnected
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- column 2 -->
+            <div class="col">
+                <div class="card">
+                    <div class="container">
+                        <center>
+                            <div class="card-header">
+                                <div class="text-center h4">Publisher</div>
+                            </div>
+                        </center>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label class="text-left">Topic:</label>
+                                <input type="text" class="form-control" id="topic">
+                            </div>
+                            <div class="form-group">
+                                <label class="text-justify">Message:</label>
+                                <input type="text" class="form-control" id="message">
+                            </div>
+                            <center>
+                                <button id="btn-pub" class="btn btn-outline-success">Publish</button></center>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- column 3 -->
+            <div class="col">
+                <div class="card">
+                    <div class="container">
+                        <center>
+                            <div class="card-header">
+                                <div class="text-center h4">Subscriber</div>
+                            </div>
+                        </center>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label class="text-left">Topic:</label>
+                                <input type="text" class="form-control" id="topic-sub">
+                            </div>
+
+                            <center>
+                                <button id="btn-sub" class="btn btn-outline-success">Subscribe</button></center>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- row1 -->
+        <br><br>
+        <h4>Message</h4>
+        <div class="row">
+            <table class="text-center table table-bordered">
+                <thead class="table">
+                    <tr>
+                        <th>Topic</th>
+                        <th>Payload</th>
+                        <th>Timestamp</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- script -->
+    <script src="scripts/browserMqtt.js"></script>
+    <script src="scripts/controller.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.js"></script>
+
+
+</body>
+
+</html>
